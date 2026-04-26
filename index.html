@@ -1,0 +1,1876 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- SEO -->
+<title>Psicologa Livorno | Alice Pusceddu — Supporto Psicologico in Studio e Online</title>
+<meta name="description" content="Alice Pusceddu, psicologa a Livorno. Percorsi su ansia, autostima, adolescenti, burnout e crescita personale. Colloqui in studio e online. Prima chiamata conoscitiva gratuita." />
+<meta name="keywords" content="psicologa Livorno, psicologo Livorno, psicologa online, psicologa ansia Livorno, psicologa autostima Livorno, supporto psicologico online, psicologa adolescenti Livorno" />
+<meta name="author" content="Alice Pusceddu" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://www.alicepusceddu.it/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="it_IT" />
+<meta property="og:title" content="Psicologa Livorno | Alice Pusceddu" />
+<meta property="og:description" content="Percorsi psicologici personalizzati a Livorno e online. Prima chiamata conoscitiva gratuita di 15 minuti." />
+<meta property="og:image" content="assets/alice-portrait.jpeg" />
+
+<!-- Schema.org Local Business / Professional Service -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Psychologist",
+  "name": "Alice Pusceddu",
+  "description": "Psicologa a Livorno. Percorsi personalizzati su ansia, autostima, adolescenza, burnout e crescita personale. Colloqui in studio e online.",
+  "image": "assets/alice-portrait.jpeg",
+  "url": "https://www.alicepusceddu.it/",
+  "telephone": "+39 328 7360433",
+  "email": "apusceddu.psi@gmail.com",
+  "priceRange": "€€",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Via Roma, 5",
+    "addressLocality": "Livorno",
+    "postalCode": "57100",
+    "addressRegion": "LI",
+    "addressCountry": "IT"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Livorno" },
+    { "@type": "Country", "name": "Italia (online)" }
+  ],
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "19:00" }
+  ],
+  "makesOffer": [
+    { "@type": "Offer", "name": "Colloquio individuale", "price": "50", "priceCurrency": "EUR" },
+    { "@type": "Offer", "name": "Prima chiamata conoscitiva (15 min)", "price": "0", "priceCurrency": "EUR" }
+  ]
+}
+</script>
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Open+Sans:wght@300;400;500;600&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* -----------------------------------------------------------
+   TOKENS
+----------------------------------------------------------- */
+:root{
+  --bg:          #F3ECE0;            /* warm beige */
+  --bg-soft:     #FBF6EC;            /* lighter warm */
+  --card:        #FFFDF8;
+  --sage:        #7A8B6F;            /* Pantone 5625 C-ish */
+  --sage-deep:   #5E6F55;
+  --sage-soft:   #B9C4AD;
+  --sage-tint:   #E5E8DC;
+  --ink:         #2C2A26;            /* warm antracite */
+  --ink-soft:    #5A564E;
+  --ink-muted:   #8F897E;
+  --line:        #E4DBCB;
+  --accent:      #C88A5E;            /* tiny terracotta accent for details */
+
+  --radius-sm: 8px;
+  --radius:    14px;
+  --radius-lg: 22px;
+
+  --shadow-sm: 0 2px 8px rgba(60,50,35,.05), 0 1px 2px rgba(60,50,35,.04);
+  --shadow:    0 10px 30px rgba(60,50,35,.08), 0 2px 6px rgba(60,50,35,.04);
+  --shadow-lg: 0 30px 60px -20px rgba(60,50,35,.18), 0 10px 20px -10px rgba(60,50,35,.08);
+
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans:  'Open Sans', system-ui, sans-serif;
+  --font-mono:  'Montserrat', system-ui, sans-serif;
+
+  --max: 1240px;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; scroll-padding-top: 88px; }
+body{
+  margin:0;
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.65;
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img{ max-width:100%; display:block; }
+a{ color: inherit; text-decoration: none; }
+button{ font-family: inherit; cursor:pointer; border:none; background:none; }
+
+h1,h2,h3,h4{ font-family: var(--font-serif); color: var(--ink); font-weight:500; letter-spacing:-.01em; margin:0; text-wrap:balance; }
+h1{ font-size: clamp(2.4rem, 5.2vw, 4.4rem); line-height: 1.08; font-weight:500; }
+h2{ font-size: clamp(2rem, 3.8vw, 3rem); line-height: 1.15; }
+h3{ font-size: 1.35rem; line-height: 1.3; }
+
+.container{ width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+section{ padding: clamp(72px, 10vw, 130px) 0; position: relative; }
+
+.eyebrow{
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: .78rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--sage-deep);
+  display:inline-flex; align-items:center; gap:10px;
+  margin-bottom: 18px;
+}
+.eyebrow::before{
+  content:""; width: 26px; height:1px; background: var(--sage);
+}
+
+/* -----------------------------------------------------------
+   NAV
+----------------------------------------------------------- */
+.nav{
+  position: fixed; top:0; left:0; right:0; z-index: 50;
+  padding: 18px 0;
+  transition: all .3s ease;
+  background: transparent;
+}
+.nav.scrolled{
+  background: rgba(243,236,224,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(192,178,150,.25);
+  padding: 12px 0;
+}
+.nav-inner{
+  display:flex; align-items:center; justify-content:space-between;
+}
+.logo{
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: -.01em;
+  display:flex; align-items:center; gap: 12px;
+}
+.logo-mark{
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--sage);
+  display:grid; place-items:center;
+  color: #fff;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: .82rem;
+  letter-spacing: .04em;
+}
+.logo small{
+  display:block;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: .65rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-top: 2px;
+}
+.logo-text{ display:flex; flex-direction:column; line-height:1; }
+.logo-text .name{ font-size: 1.1rem; }
+
+.nav-links{ display:flex; gap: 32px; align-items:center; }
+.nav-links a{
+  font-size: .92rem;
+  color: var(--ink-soft);
+  transition: color .2s;
+  position: relative;
+}
+.nav-links a:hover{ color: var(--sage-deep); }
+.nav-cta{
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: .82rem;
+  padding: 11px 20px;
+  background: var(--sage);
+  color: #fff !important;
+  border-radius: 999px;
+  letter-spacing: .02em;
+  transition: all .25s;
+}
+.nav-cta:hover{ background: var(--sage-deep); transform: translateY(-1px); }
+
+.nav-burger{ display:none; width: 42px; height:42px; border-radius: 50%; background: rgba(255,255,255,.6); align-items:center; justify-content:center; }
+.nav-burger svg{ width:20px; height:20px; }
+
+@media (max-width: 860px){
+  .nav-links{
+    position: fixed; top:0; right:-100%; bottom:0; width: 80%; max-width: 340px;
+    background: var(--bg-soft);
+    flex-direction: column; justify-content: center; align-items:flex-start;
+    padding: 60px 40px; gap: 24px;
+    box-shadow: -20px 0 40px rgba(0,0,0,.1);
+    transition: right .35s ease;
+  }
+  .nav-links.open{ right: 0; }
+  .nav-links a{ font-size: 1.1rem; }
+  .nav-burger{ display:flex; }
+}
+
+/* -----------------------------------------------------------
+   BUTTONS
+----------------------------------------------------------- */
+.btn{
+  display: inline-flex; align-items:center; gap:10px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: .92rem;
+  letter-spacing: .01em;
+  padding: 16px 28px;
+  border-radius: 999px;
+  transition: all .25s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.btn-primary{
+  background: var(--sage);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(122,139,111,.3);
+}
+.btn-primary:hover{ background: var(--sage-deep); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(94,111,85,.4); }
+.btn-secondary{
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+}
+.btn-secondary:hover{ background: var(--ink); color: #fff; }
+.btn-ghost{
+  background: transparent;
+  color: var(--sage-deep);
+  padding: 10px 0;
+  border-bottom: 1px solid var(--sage);
+  border-radius: 0;
+}
+.btn-wa{
+  background: #25D366;
+  color: #fff;
+}
+.btn-wa:hover{ background: #128C7E; transform: translateY(-2px); }
+
+/* -----------------------------------------------------------
+   HERO
+----------------------------------------------------------- */
+.hero{
+  padding: 150px 0 100px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before{
+  content:"";
+  position:absolute; top: -100px; right: -100px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(185,196,173,.35) 0%, transparent 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+.hero-inner{
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 80px;
+  align-items: center;
+  position: relative; z-index: 1;
+}
+.hero-text h1{
+  margin: 14px 0 24px;
+}
+.hero-text h1 em{
+  font-style: italic;
+  color: var(--sage-deep);
+  font-weight: 400;
+}
+.hero-sub{
+  font-size: 1.18rem;
+  color: var(--ink-soft);
+  max-width: 520px;
+  margin-bottom: 38px;
+  line-height: 1.6;
+}
+.hero-ctas{
+  display:flex; gap: 14px; flex-wrap: wrap; margin-bottom: 44px;
+}
+.trust-badges{
+  display: flex; flex-direction: column; gap: 10px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+.trust-badge{
+  display:flex; align-items:center; gap: 12px;
+  font-size: .92rem; color: var(--ink-soft);
+}
+.trust-badge svg{
+  width: 18px; height:18px; flex-shrink:0; color: var(--sage);
+}
+
+/* portrait */
+.hero-media{
+  position: relative;
+}
+.hero-portrait{
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 4/5;
+  background: var(--sage-tint);
+}
+.hero-portrait img{
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 1.2s ease;
+}
+.hero-portrait:hover img{ transform: scale(1.03); }
+
+.hero-card{
+  position: absolute;
+  bottom: -30px; left: -30px;
+  background: var(--card);
+  padding: 20px 24px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display:flex; align-items:center; gap: 14px;
+  max-width: 260px;
+}
+.hero-card-icon{
+  width: 44px; height:44px; border-radius:50%;
+  background: var(--sage-tint);
+  display:grid; place-items:center;
+  flex-shrink:0;
+}
+.hero-card-icon svg{ width: 22px; height:22px; color: var(--sage-deep); }
+.hero-card-text{
+  font-size: .84rem;
+  color: var(--ink-soft);
+  line-height: 1.4;
+}
+.hero-card-text strong{
+  display:block;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: .9rem;
+  margin-bottom: 2px;
+}
+
+.hero-leaf{
+  position: absolute;
+  top: -20px; right: -20px;
+  width: 90px; height: 90px;
+  background: var(--sage);
+  border-radius: 50%;
+  opacity: .12;
+}
+
+@media (max-width: 860px){
+  .hero{ padding: 120px 0 80px; }
+  .hero-inner{ grid-template-columns: 1fr; gap: 60px; }
+  .hero-media{ max-width: 420px; margin: 0 auto; }
+}
+
+/* -----------------------------------------------------------
+   CHI SONO
+----------------------------------------------------------- */
+.about{
+  background: var(--bg-soft);
+}
+.about-inner{
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 80px;
+  align-items: center;
+}
+.about-media{
+  position: relative;
+}
+.about-img{
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  box-shadow: var(--shadow-lg);
+}
+.about-img img{ width:100%; height:100%; object-fit: cover; }
+.about-sig{
+  position: absolute;
+  bottom: 20px; right: -30px;
+  background: var(--sage);
+  color: #fff;
+  padding: 22px 28px;
+  border-radius: var(--radius);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  max-width: 240px;
+  box-shadow: var(--shadow);
+  line-height: 1.4;
+}
+.about-text h2{ margin-bottom: 24px; }
+.about-text p{
+  color: var(--ink-soft);
+  margin: 0 0 20px;
+  font-size: 1.05rem;
+}
+.about-text p strong{ color: var(--ink); font-weight: 600; }
+.about-values{
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 36px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+.about-value strong{
+  display:block;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: .85rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--sage-deep);
+  margin-bottom: 6px;
+}
+.about-value span{
+  font-size: .95rem;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 860px){
+  .about-inner{ grid-template-columns: 1fr; gap: 50px; }
+  .about-media{ max-width: 380px; margin: 0 auto; width: 100%; }
+  .about-sig{ right: 10px; }
+}
+
+/* -----------------------------------------------------------
+   SERVIZI / CARDS
+----------------------------------------------------------- */
+.services-head{
+  max-width: 700px;
+  margin-bottom: 64px;
+}
+.services-head h2{ margin-bottom: 18px; }
+.services-head p{ color: var(--ink-soft); font-size: 1.1rem; }
+.services-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+.service-card{
+  background: var(--card);
+  padding: 32px 28px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  transition: all .3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.service-card::before{
+  content:"";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--sage);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .4s ease;
+}
+.service-card:hover{
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  border-color: var(--sage-soft);
+}
+.service-card:hover::before{ transform: scaleX(1); }
+.service-icon{
+  width: 52px; height: 52px; border-radius: 14px;
+  background: var(--sage-tint);
+  display: grid; place-items: center;
+  margin-bottom: 20px;
+  color: var(--sage-deep);
+}
+.service-icon svg{ width: 26px; height: 26px; }
+.service-card h3{
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+.service-card p{
+  font-size: .94rem;
+  color: var(--ink-soft);
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* -----------------------------------------------------------
+   DOVE RICEVO
+----------------------------------------------------------- */
+.where{
+  background: var(--bg-soft);
+}
+.where-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 56px;
+}
+.where-card{
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform .4s ease, box-shadow .4s ease;
+}
+.where-card:hover{ transform: translateY(-3px); box-shadow: var(--shadow); }
+.where-img{
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  background: var(--sage-tint);
+  position: relative;
+}
+.where-img img{
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 1.2s ease;
+}
+.where-card:hover .where-img img{ transform: scale(1.04); }
+.where-img.online{
+  display:grid; place-items:center;
+  background: linear-gradient(135deg, var(--sage-tint) 0%, #DCE4CF 100%);
+}
+.where-img.online svg{ width: 120px; height: 120px; color: var(--sage-deep); opacity:.7; }
+.where-body{
+  padding: 36px 36px 40px;
+}
+.where-body .tag{
+  display:inline-block;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: .72rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--sage-deep);
+  padding: 5px 12px;
+  background: var(--sage-tint);
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+.where-body h3{
+  font-size: 1.6rem;
+  margin-bottom: 14px;
+}
+.where-body p{
+  color: var(--ink-soft);
+  margin: 0 0 18px;
+}
+.where-list{
+  list-style: none; padding:0; margin: 0;
+}
+.where-list li{
+  display:flex; gap: 10px; align-items:flex-start;
+  font-size: .94rem;
+  color: var(--ink-soft);
+  padding: 6px 0;
+}
+.where-list li::before{
+  content:"";
+  width: 6px; height:6px; border-radius:50%;
+  background: var(--sage);
+  margin-top: 10px;
+  flex-shrink:0;
+}
+
+@media (max-width: 760px){
+  .where-grid{ grid-template-columns: 1fr; }
+}
+
+/* -----------------------------------------------------------
+   COME FUNZIONA
+----------------------------------------------------------- */
+.steps-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 60px;
+  position: relative;
+}
+.steps-grid::before{
+  content:"";
+  position:absolute;
+  top: 40px; left: 16.66%; right: 16.66%;
+  height: 1px;
+  background: repeating-linear-gradient(to right, var(--sage-soft) 0 8px, transparent 8px 16px);
+  z-index: 0;
+}
+.step{
+  text-align: center;
+  position: relative; z-index:1;
+}
+.step-num{
+  width: 80px; height:80px; border-radius:50%;
+  background: var(--bg);
+  border: 2px solid var(--sage);
+  color: var(--sage-deep);
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 500;
+  display: grid; place-items: center;
+  margin: 0 auto 24px;
+  transition: all .3s ease;
+}
+.step:hover .step-num{
+  background: var(--sage);
+  color: #fff;
+  transform: scale(1.05);
+}
+.step h3{ font-size: 1.3rem; margin-bottom: 10px; }
+.step p{ color: var(--ink-soft); font-size: .98rem; max-width: 280px; margin: 0 auto; }
+
+@media (max-width: 760px){
+  .steps-grid{ grid-template-columns: 1fr; gap: 40px; }
+  .steps-grid::before{ display:none; }
+}
+
+/* -----------------------------------------------------------
+   PREZZI
+----------------------------------------------------------- */
+.pricing{
+  background: var(--bg-soft);
+}
+.pricing-grid{
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 56px;
+  max-width: 900px;
+}
+.price-card{
+  background: var(--card);
+  padding: 44px 40px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  position: relative;
+}
+.price-card.featured{
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+.price-card.featured h3{ color: #fff; }
+.price-card .badge{
+  position:absolute; top: -12px; right: 28px;
+  background: var(--sage);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.price-label{
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: .78rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--sage-deep);
+  margin-bottom: 10px;
+}
+.price-card.featured .price-label{ color: var(--sage-soft); }
+.price-card h3{ font-size: 1.6rem; margin-bottom: 18px; }
+.price-amount{
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 3rem;
+  letter-spacing: -.02em;
+  color: var(--ink);
+  margin: 16px 0 24px;
+}
+.price-card.featured .price-amount{ color: #fff; }
+.price-amount small{
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--ink-muted);
+  margin-left: 4px;
+}
+.price-card.featured .price-amount small{ color: rgba(255,255,255,.6); }
+.price-features{
+  list-style: none; padding:0; margin: 0 0 28px;
+}
+.price-features li{
+  display:flex; gap:10px; padding: 7px 0;
+  font-size: .95rem;
+  color: var(--ink-soft);
+}
+.price-card.featured .price-features li{ color: rgba(255,255,255,.85); }
+.price-features svg{ width: 18px; height: 18px; color: var(--sage); flex-shrink:0; margin-top:3px; }
+.price-card.featured .price-features svg{ color: var(--sage-soft); }
+
+@media (max-width: 760px){ .pricing-grid{ grid-template-columns: 1fr; } }
+
+/* -----------------------------------------------------------
+   TESTIMONIANZE
+----------------------------------------------------------- */
+.testi-head{
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 60px;
+}
+.testi-head .eyebrow{ justify-content:center; }
+.testi-head .eyebrow::before{ display:none; }
+.testi-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.testi-card{
+  background: var(--card);
+  padding: 36px 32px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  position: relative;
+  display: flex; flex-direction: column;
+}
+.testi-quote{
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 3.5rem;
+  line-height: .8;
+  color: var(--sage-soft);
+  margin-bottom: 8px;
+}
+.testi-card p{
+  font-size: 1rem;
+  color: var(--ink);
+  line-height: 1.65;
+  margin: 0 0 24px;
+  flex: 1;
+}
+.testi-stars{
+  display:flex; gap:2px;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.testi-stars svg{ width: 16px; height: 16px; fill: currentColor; }
+.testi-author{
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: .85rem;
+  letter-spacing: .05em;
+  color: var(--ink);
+}
+.testi-author span{
+  display: block;
+  font-weight: 400;
+  font-family: var(--font-sans);
+  color: var(--ink-muted);
+  font-size: .85rem;
+  letter-spacing: 0;
+  margin-top: 2px;
+}
+
+@media (max-width: 860px){ .testi-grid{ grid-template-columns: 1fr; } }
+
+/* -----------------------------------------------------------
+   CONTATTI
+----------------------------------------------------------- */
+.contact{
+  background: var(--ink);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.contact::before{
+  content:"";
+  position:absolute; top: -150px; right: -150px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(122,139,111,.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+.contact h2, .contact h3{ color: #fff; }
+.contact .eyebrow{ color: var(--sage-soft); }
+.contact .eyebrow::before{ background: var(--sage-soft); }
+
+.contact-inner{
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 80px;
+  position: relative; z-index: 1;
+}
+.contact-text h2{ margin-bottom: 20px; }
+.contact-text > p{
+  color: rgba(255,255,255,.75);
+  font-size: 1.1rem;
+  margin: 0 0 40px;
+  max-width: 460px;
+}
+.contact-channels{
+  display: flex; flex-direction: column; gap: 18px;
+  margin-bottom: 36px;
+}
+.channel{
+  display:flex; align-items:center; gap: 18px;
+  padding: 18px 22px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: var(--radius);
+  transition: all .25s;
+}
+.channel:hover{
+  background: rgba(255,255,255,.1);
+  border-color: var(--sage-soft);
+  transform: translateX(4px);
+}
+.channel-icon{
+  width: 46px; height: 46px; border-radius: 50%;
+  background: var(--sage);
+  display:grid; place-items: center;
+  flex-shrink: 0;
+}
+.channel-icon svg{ width: 22px; height:22px; color:#fff; }
+.channel-text{
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #fff;
+}
+.channel-text small{
+  display: block;
+  font-family: var(--font-sans);
+  font-size: .8rem;
+  font-weight: 400;
+  color: rgba(255,255,255,.5);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+/* form */
+.form-card{
+  background: #FBF6EC;
+  color: var(--ink);
+  padding: 44px 42px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+.form-card h3{
+  color: var(--ink);
+  margin-bottom: 6px;
+  font-size: 1.55rem;
+}
+.form-card > p{
+  color: var(--ink-soft);
+  margin: 0 0 28px;
+  font-size: .95rem;
+}
+.form-row{
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.field{ margin-bottom: 16px; position: relative; }
+.field label{
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: .72rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+  display: block;
+}
+.field input,
+.field textarea{
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--ink);
+  transition: all .2s;
+  resize: vertical;
+}
+.field input:focus,
+.field textarea:focus{
+  outline: none;
+  border-color: var(--sage);
+  box-shadow: 0 0 0 4px rgba(122,139,111,.15);
+}
+.field.error input,
+.field.error textarea{ border-color: #C45454; }
+.field .err{
+  color: #C45454;
+  font-size: .78rem;
+  margin-top: 6px;
+  font-family: var(--font-sans);
+  display: none;
+}
+.field.error .err{ display:block; }
+
+.form-submit{
+  width: 100%;
+  justify-content: center;
+  padding: 17px 28px;
+  font-size: .95rem;
+  margin-top: 8px;
+}
+.form-privacy{
+  font-size: .78rem;
+  color: var(--ink-muted);
+  margin-top: 14px;
+  text-align: center;
+  line-height: 1.5;
+}
+.form-success{
+  background: var(--sage-tint);
+  border: 1px solid var(--sage);
+  padding: 22px;
+  border-radius: 12px;
+  color: var(--sage-deep);
+  text-align: center;
+  display: none;
+}
+.form-success.show{ display: block; }
+.form-success strong{ display:block; font-family: var(--font-serif); font-size: 1.25rem; margin-bottom: 6px; color: var(--ink); }
+.form-consent{ display:flex; gap:10px; align-items:flex-start; margin-top:14px; font-size:.82rem; color: var(--ink-soft); cursor:pointer; line-height:1.5; }
+.form-consent input[type=checkbox]{ margin-top:3px; accent-color: var(--sage); width:16px; height:16px; flex-shrink:0; cursor:pointer; }
+.form-consent a{ color: var(--sage-deep); text-decoration: underline; font-weight:600; }
+.form-error{ display:none; background:#FBE9E7; color:#8C2A1F; padding:12px 16px; border-radius:10px; font-size:.85rem; margin-top:12px; border:1px solid #E5B4A8; }
+.form-error.show{ display:block; }
+.form-submit[disabled]{ opacity:.6; cursor:not-allowed; }
+
+/* Privacy modal */
+.modal-backdrop{ position:fixed; inset:0; background: rgba(30,28,24,.55); backdrop-filter: blur(6px); z-index:200; display:none; align-items:center; justify-content:center; padding:20px; }
+.modal-backdrop.show{ display:flex; }
+.modal-card{ background: var(--bg-soft); color: var(--ink); border-radius: var(--radius-lg); max-width: 720px; width:100%; max-height: 85vh; overflow-y:auto; padding: 36px 40px; box-shadow: var(--shadow-lg); position:relative; }
+.modal-card h3{ font-size: 1.6rem; margin-bottom: 6px; }
+.modal-card .eyebrow{ margin-bottom: 12px; }
+.modal-card h4{ font-family: var(--font-mono); font-weight:600; font-size:.85rem; letter-spacing:.1em; text-transform:uppercase; color: var(--sage-deep); margin: 22px 0 8px; }
+.modal-card p, .modal-card li{ font-size:.92rem; color: var(--ink-soft); line-height:1.6; }
+.modal-card ul{ padding-left: 20px; margin:0 0 12px; }
+.modal-close{ position:absolute; top:16px; right:16px; width:36px; height:36px; border-radius:50%; background: var(--sage-tint); display:grid; place-items:center; cursor:pointer; }
+.modal-close svg{ width:18px; height:18px; color: var(--sage-deep); }
+
+@media (max-width: 860px){
+  .contact-inner{ grid-template-columns: 1fr; gap: 50px; }
+  .form-row{ grid-template-columns: 1fr; }
+  .form-card{ padding: 32px 26px; }
+}
+
+/* -----------------------------------------------------------
+   FAQ
+----------------------------------------------------------- */
+.faq-head{
+  max-width: 620px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+.faq-head .eyebrow{ justify-content:center; }
+.faq-head .eyebrow::before{ display: none; }
+.faq-list{
+  max-width: 780px;
+  margin: 0 auto;
+}
+.faq-item{
+  border-bottom: 1px solid var(--line);
+}
+.faq-q{
+  width: 100%;
+  padding: 24px 0;
+  display: flex; align-items: center; justify-content: space-between;
+  text-align: left;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--ink);
+  cursor: pointer;
+  gap: 20px;
+  transition: color .2s;
+}
+.faq-q:hover{ color: var(--sage-deep); }
+.faq-toggle{
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--sage-tint);
+  display: grid; place-items: center;
+  flex-shrink: 0;
+  transition: all .3s;
+}
+.faq-toggle svg{
+  width: 16px; height: 16px; color: var(--sage-deep);
+  transition: transform .3s;
+}
+.faq-item.open .faq-toggle{
+  background: var(--sage);
+}
+.faq-item.open .faq-toggle svg{
+  transform: rotate(45deg);
+  color: #fff;
+}
+.faq-a{
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s ease, padding .3s;
+}
+.faq-item.open .faq-a{
+  max-height: 300px;
+  padding-bottom: 24px;
+}
+.faq-a p{
+  color: var(--ink-soft);
+  margin: 0;
+  padding-right: 56px;
+  font-size: 1rem;
+}
+
+/* -----------------------------------------------------------
+   FOOTER
+----------------------------------------------------------- */
+footer{
+  padding: 50px 0 30px;
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+}
+.footer-inner{
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 20px;
+}
+.footer-meta{
+  font-size: .82rem;
+  color: var(--ink-muted);
+}
+.footer-meta a{ color: var(--ink-soft); }
+
+/* -----------------------------------------------------------
+   WHATSAPP FLOATING BUTTON
+----------------------------------------------------------- */
+.wa-float{
+  position: fixed;
+  bottom: 24px; right: 24px;
+  z-index: 60;
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: #25D366;
+  display: grid; place-items: center;
+  box-shadow: 0 8px 24px rgba(37,211,102,.4);
+  transition: all .3s;
+  cursor: pointer;
+}
+.wa-float:hover{
+  transform: scale(1.08);
+  box-shadow: 0 12px 32px rgba(37,211,102,.5);
+}
+.wa-float svg{ width: 30px; height: 30px; color: #fff; }
+.wa-float::before{
+  content:"";
+  position: absolute; inset: -6px;
+  border-radius: 50%;
+  background: rgba(37,211,102,.4);
+  z-index: -1;
+  animation: pulse 2.2s ease-out infinite;
+}
+.wa-tip{
+  position: absolute;
+  right: 72px; top: 50%; transform: translateY(-50%);
+  background: var(--ink);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  white-space: nowrap;
+  opacity: 0; pointer-events: none;
+  transition: opacity .25s;
+}
+.wa-float:hover .wa-tip{ opacity: 1; }
+.wa-tip::after{
+  content:"";
+  position: absolute; left: 100%; top:50%; transform:translateY(-50%);
+  border: 5px solid transparent;
+  border-left-color: var(--ink);
+}
+
+@keyframes pulse{
+  0%   { transform: scale(1); opacity: .6; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* -----------------------------------------------------------
+   REVEAL
+----------------------------------------------------------- */
+.reveal{
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+.reveal.in{ opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation: none !important; transition: none !important; }
+  .reveal{ opacity:1; transform:none; }
+}
+</style>
+</head>
+<body data-screen-label="Alice Pusceddu Home">
+
+<!-- ============================ NAV ============================ -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#hero" class="logo" aria-label="Alice Pusceddu, psicologa">
+      <span class="logo-mark">AP</span>
+      <span class="logo-text">
+        <span class="name">Alice Pusceddu</span>
+        <small>Psicologa</small>
+      </span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">Chi sono</a>
+      <a href="#services">Il metodo</a>
+      <a href="#where">Dove ricevo</a>
+      <a href="#how">Percorso</a>
+      <a href="#pricing">Prezzi</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="nav-cta">Contattami</a>
+    </div>
+    <button class="nav-burger" id="navBurger" aria-label="Apri menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ============================ HERO ============================ -->
+<header class="hero" id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-text reveal">
+        <span class="eyebrow">Psicologa · Livorno &amp; Online</span>
+        <h1 style="text-align: center">Dott.ssa <br/>Alice Pusceddu</h1>
+        <p class="hero-sub" style="text-align: center">
+          Percorsi psicologici personalizzati, pensati per accompagnarti
+          passo dopo passo. A Livorno o online.
+        </p>
+        <div class="hero-ctas" style="text-align: center">
+          <a href="#contact" class="btn btn-primary">
+            Prenota una chiamata 
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="https://wa.me/393287360433?text=Ciao%20Alice%2C%20vorrei%20avere%20maggiori%20informazioni." target="_blank" rel="noopener" class="btn btn-secondary">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.15-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.007-.371-.009-.57-.009-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Scrivimi su WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-media reveal">
+        <span class="hero-leaf" aria-hidden="true"></span>
+        <div class="hero-portrait">
+          <img src="assets/alice-portrait.jpeg" alt="Alice Pusceddu, psicologa a Livorno, sorridente nel proprio studio" width="800" height="1000" loading="eager"/>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<!-- ============================ CHI SONO ============================ -->
+<section class="about" id="about">
+  <div class="container about-inner">
+    <div class="about-media reveal">
+      <div class="about-img">
+        <img src="assets/alice-studio.jpeg" alt="Alice Pusceddu nel suo studio di Livorno, ambiente accogliente" loading="lazy"/>
+      </div>
+      <div class="about-sig">
+        “Ogni persona porta con sé una storia che merita ascolto.”
+      </div>
+    </div>
+    <div class="about-text reveal">
+      <span class="eyebrow">Chi sono</span>
+      <h2>Un ascolto umano, <em style="font-style:italic; color:var(--sage-deep); font-family:var(--font-serif)">prima di tutto</em>.</h2>
+      <p>
+        Sono <strong>Alice Pusceddu</strong>, psicologa ad orientamento
+        analitico transazionale psicodinamico.
+      </p>
+      <p>
+        Offro percorsi di supporto psicologico per <strong>adolescenti, giovani adulti e adulti</strong>.
+      </p>
+      <p>
+        Nel mio lavoro incontro persone che portano con sé sintomi, difficoltà,
+        fatiche che spesso vengono vissute come qualcosa da eliminare il prima possibile.
+        Io credo invece che ogni sintomo racconti una storia: una strategia, più o meno
+        funzionale, che in un certo momento è servita per restare in piedi.
+      </p>
+      <p>
+        Il percorso psicologico diventa allora uno spazio in cui fermarsi, dare significato,
+        esplorare ciò che accade sotto la superficie.
+      </p>
+      <div class="about-values">
+        <div class="about-value">
+          <strong>Orientamento</strong>
+          <span>Analisi Transazionale ad indirizzo psicodinamico.</span>
+        </div>
+        <div class="about-value">
+          <strong>A chi mi rivolgo</strong>
+          <span>Adolescenti, giovani adulti e adulti.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ IL MIO MODO DI LAVORARE ============================ -->
+<style>
+.method{ background: var(--bg); }
+.method-head{ max-width: 760px; margin: 0 auto 70px; text-align: center; }
+.method-head .eyebrow{ justify-content:center; }
+.method-head .eyebrow::before{ display:none; }
+.method-head h2{ margin-bottom: 18px; }
+.method-head p{ color: var(--ink-soft); font-size: 1.1rem; }
+.method-intro{
+  max-width: 820px;
+  margin: 0 auto 80px;
+}
+.method-intro p{
+  font-size: 1.12rem;
+  color: var(--ink-soft);
+  margin: 0 0 22px;
+  line-height: 1.75;
+}
+.method-intro p strong{ color: var(--ink); font-weight: 600; }
+.method-intro p em{
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--sage-deep);
+  font-weight: 400;
+}
+.method-pull{
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.5rem, 2.6vw, 2.05rem);
+  line-height: 1.35;
+  color: var(--ink);
+  text-align: center;
+  max-width: 820px;
+  margin: 60px auto;
+  padding: 40px 30px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+.method-pull::before{
+  content: "";
+  position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid var(--sage);
+}
+
+.flower-block{
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 70px;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 56px 0 0;
+}
+.flower-art{
+  position: relative;
+  aspect-ratio: 1/1;
+  background: var(--sage-tint);
+  border-radius: var(--radius-lg);
+  display: grid; place-items: center;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.flower-art svg{
+  width: 75%; height: 75%;
+  filter: drop-shadow(0 4px 12px rgba(94,111,85,.18));
+}
+.flower-text h3{
+  font-size: clamp(1.7rem, 2.6vw, 2.2rem);
+  margin-bottom: 22px;
+  line-height: 1.25;
+}
+.flower-text h3 em{
+  font-style: italic;
+  color: var(--sage-deep);
+  font-family: var(--font-serif);
+}
+.flower-text p{
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  margin: 0 0 18px;
+  line-height: 1.7;
+}
+.flower-text p strong{ color: var(--ink); font-weight: 600; }
+
+@media (max-width: 860px){
+  .flower-block{ grid-template-columns: 1fr; gap: 40px; }
+  .flower-art{ max-width: 360px; margin: 0 auto; width: 100%; }
+}
+</style>
+
+<section class="method services" id="services">
+  <div class="container" style="font-size: 23px">
+    <div class="method-head reveal">
+      <span class="eyebrow">Il mio modo di lavorare</span>
+      <h2>Non esistono soluzioni <em style="font-style:italic; color:var(--sage-deep);">standard</em>.</h2>
+      <p style="font-family: &quot;Playfair Display&quot;; color: rgb(122, 139, 111)">Ogni storia, ogni sintomo, ogni sofferenza nasce in un contesto unico — e merita una cura altrettanto unica.</p>
+    </div>
+
+    <div class="method-intro reveal">
+      <p>
+        Il mio orientamento è l'<strong>Analisi Transazionale ad indirizzo psicodinamico</strong>.
+        Si fonda sulla convinzione che non esistano soluzioni standard, perché ogni storia,
+        ogni sintomo, ogni sofferenza nasce in un contesto unico.
+      </p>
+      <p>
+        Molti dei sintomi che abitano le nostre vite non hanno lo scopo di rovinarle.
+        Al contrario, rappresentano <em>un tentativo intelligente di adattamento</em> —
+        una strategia per sopravvivere a qualcosa che, in quel momento, non poteva
+        essere affrontato in altro modo.
+      </p>
+      <p>
+        Per questo il lavoro che faremo insieme non sarà orientato a “recidere” il sintomo,
+        come se fosse un errore da correggere o un fiore marcio di cui liberarsi per essere
+        più adeguati. Sarà piuttosto un percorso di <strong>esplorazione e comprensione</strong>:
+        a cosa è servito quel sintomo, cosa racconta, cosa ha cercato di proteggere.
+      </p>
+    </div>
+
+    <blockquote class="method-pull reveal">
+      “Dare dignità e significato a ciò che fa soffrire<br/>
+      è spesso il primo passo verso un cambiamento possibile e autentico.”
+    </blockquote>
+
+    <div class="flower-block reveal">
+      <div class="flower-art" aria-hidden="true">
+        <!-- Stylized flower with visible roots metaphor -->
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <!-- soil line -->
+          <line x1="20" y1="110" x2="180" y2="110" stroke="#5E6F55" stroke-width="1" stroke-dasharray="3 4" opacity=".5"/>
+          <!-- stem -->
+          <path d="M100 110 Q98 80 100 55" stroke="#5E6F55" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <!-- leaf -->
+          <path d="M100 85 Q85 75 78 82 Q88 90 100 90" fill="#7A8B6F" opacity=".85"/>
+          <!-- petals -->
+          <g transform="translate(100 50)">
+            <ellipse cx="0" cy="-14" rx="10" ry="16" fill="#C88A5E" opacity=".9"/>
+            <ellipse cx="13" cy="-4" rx="10" ry="16" fill="#C88A5E" opacity=".9" transform="rotate(72 13 -4)"/>
+            <ellipse cx="8" cy="13" rx="10" ry="16" fill="#C88A5E" opacity=".9" transform="rotate(144 8 13)"/>
+            <ellipse cx="-8" cy="13" rx="10" ry="16" fill="#C88A5E" opacity=".9" transform="rotate(216 -8 13)"/>
+            <ellipse cx="-13" cy="-4" rx="10" ry="16" fill="#C88A5E" opacity=".9" transform="rotate(288 -13 -4)"/>
+            <circle cx="0" cy="0" r="7" fill="#5E6F55"/>
+          </g>
+          <!-- roots (deeper, more elaborate) -->
+          <g stroke="#5E6F55" fill="none" stroke-width="1.6" stroke-linecap="round" opacity=".75">
+            <path d="M100 110 Q95 125 88 140 Q82 152 78 168"/>
+            <path d="M100 110 Q104 128 110 142 Q116 158 122 172"/>
+            <path d="M100 110 Q90 122 78 130 Q66 138 58 150"/>
+            <path d="M100 110 Q112 122 124 132 Q138 142 146 156"/>
+            <path d="M100 110 Q100 130 100 152 Q100 166 98 180"/>
+            <path d="M88 140 Q82 148 76 156"/>
+            <path d="M110 142 Q116 148 122 156"/>
+          </g>
+        </svg>
+      </div>
+      <div class="flower-text">
+        <h3>La metafora del <em>fiore</em>.</h3>
+        <p>
+          Quando qualcosa fa soffrire, spesso viene vissuto come qualcosa da eliminare.
+          Il sintomo diventa così un <strong>fiore sgualcito</strong>: visibile, fastidioso,
+          da tagliare per rendere il giardino “più a posto”.
+        </p>
+        <p>
+          Recidere il fiore può dare l'illusione di una soluzione rapida, ma ciò che ha generato
+          quel cambiamento resta intatto <strong>nelle radici</strong>. Il sintomo non nasce per caso:
+          è il risultato di ciò che è accaduto sotto, di come hai imparato a resistere,
+          a proteggerti, a restare in piedi.
+        </p>
+        <p>
+          Nel lavoro terapeutico ci occuperemo di questo: non di giudicare o eliminare il sintomo,
+          ma di <strong>comprenderlo, incuriosirci, ascoltarlo</strong>. Lavorare sulle radici
+          richiede tempo e pazienza — ma è lì che può nascere un cambiamento più profondo
+          e rispettoso della propria storia.
+        </p>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top: 80px;" class="reveal">
+      <a href="#contact" class="btn btn-primary">Inizia un percorso insieme</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ DOVE RICEVO ============================ -->
+<section class="where" id="where">
+  <div class="container">
+    <div class="services-head reveal" style="max-width:700px;">
+      <span class="eyebrow">Dove ricevo</span>
+      <h2>In studio a Livorno <em style="font-style:italic; color:var(--sage-deep);">o</em> online.</h2>
+    </div>
+
+    <div class="where-grid">
+      <article class="where-card reveal">
+        <div class="where-img">
+          <img src="assets/studio-1.jpeg" alt="Studio di psicologia a Livorno, ambiente accogliente con poltrona, divano e illuminazione calda" loading="lazy"/>
+        </div>
+        <div class="where-body">
+          <span class="tag">In presenza</span>
+          <h3>Studio a Livorno</h3>
+          <ul class="where-list">
+            <li>In studio a Livorno, in Via Roma 5</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="where-card reveal">
+        <div class="where-img">
+          <img src="assets/studio-2.jpeg" alt="Dettaglio dello studio di Alice Pusceddu, pianta verde e illuminazione rilassante" loading="lazy"/>
+        </div>
+        <div class="where-body">
+          <span class="tag">Videochiamata</span>
+          <h3>Percorso Online</h3>
+          <ul class="where-list">
+            <li>In videochiamata, online</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ COME FUNZIONA ============================ -->
+<section class="how" id="how">
+  <div class="container">
+    <div class="services-head reveal" style="text-align:center; margin:0 auto 30px; max-width:640px;">
+      <span class="eyebrow" style="justify-content:center;">Come funziona</span>
+      <style>.how .eyebrow::before{ display:none }</style>
+      <h2>Tre passi semplici per iniziare.</h2>
+      <p>
+</p>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step reveal">
+        <div class="step-num">01</div>
+        <h3>Mi contatti</h3>
+        <p>Tramite form, WhatsApp o telefono. Rispondo personalmente, di solito entro 24 ore.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">02</div>
+        <h3>Chiamata</h3>
+        <p>Facciamo una chiamata conoscitiva senza impegno.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">03</div>
+        <h3>Iniziamo insieme</h3>
+        <p>Costruiamo il percorso più adatto a te.</p>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top: 60px;" class="reveal">
+      <a href="#contact" class="btn btn-primary">Prenota la prima chiamata</a>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- ============================ PREZZI ============================ -->
+<style>
+  .pricing-card-wide{
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 56px 64px;
+    display: grid;
+    grid-template-columns: 1fr 1px 1.1fr;
+    gap: 56px;
+    align-items: center;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  .pricing-card-wide::before{
+    content:"";
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 4px;
+    background: var(--sage);
+  }
+  .pricing-card-wide .divider{
+    background: var(--line);
+    height: 70%;
+    width: 1px;
+    align-self: center;
+  }
+  .pricing-left .price-label{ margin-bottom: 12px; }
+  .pricing-left h3{ font-size: 1.85rem; margin-bottom: 18px; line-height: 1.2; }
+  .pricing-left .price-amount{ margin: 0; font-size: 3.2rem; }
+  .pricing-right .price-features{
+    margin: 0 0 26px;
+  }
+  .pricing-right .price-features li{
+    font-size: 1rem;
+    padding: 8px 0;
+  }
+  .pricing-right .btn{
+    padding: 14px 26px;
+    font-size: .9rem;
+  }
+  @media (max-width: 760px){
+    .pricing-card-wide{
+      grid-template-columns: 1fr;
+      padding: 40px 32px;
+      gap: 32px;
+    }
+    .pricing-card-wide .divider{
+      width: 100%;
+      height: 1px;
+    }
+    .pricing-left h3{ font-size: 1.5rem; }
+    .pricing-left .price-amount{ font-size: 2.5rem; }
+  }
+</style>
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="services-head reveal" style="max-width:700px; margin: 0 auto 56px; text-align:center;">
+      <span class="eyebrow" style="justify-content:center;">Tariffe</span>
+      <h2>Terapia individuale</h2>
+    </div>
+
+    <div class="pricing-card-wide reveal">
+      <div class="pricing-left">
+        <div class="price-label">Percorso</div>
+        <h3>Colloquio individuale</h3>
+        <div class="price-amount">50€ <small>· 50 minuti</small></div>
+      </div>
+
+      <div class="divider" aria-hidden="true"></div>
+
+      <div class="pricing-right">
+        <ul class="price-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>In studio a Livorno o online</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Nessun vincolo, nessun pacchetto</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Ricevuta sanitaria detraibile</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">
+          Richiedi informazioni
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FAQ ============================ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="faq-head reveal">
+      <span class="eyebrow">Domande frequenti</span>
+      <style>.faq .eyebrow::before{ display:none }</style>
+      <h2>Ti rispondo qui.</h2>
+    </div>
+
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Quanto dura un colloquio?
+          <span class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a"><p>Un colloquio individuale dura 50 minuti.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Posso fare terapia online?
+          <span class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a"><p>Sì. Il percorso online si svolge in videochiamata su piattaforme sicure e conformi al GDPR. </p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Come prenoto?
+          <span class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a"><p>Puoi scrivermi tramite il form di contatto, su WhatsApp o chiamarmi direttamente. Rispondo personalmente, di solito nell'arco della giornata.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Anche il primo colloquio è a pagamento?
+          <span class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a"><p>Sì, il primo colloquio è a pagamento. E' normale chiederselo: spesso viene visto come un semplice incontro conoscitivo ma in realtà è già un primo momento di lavoro, utile per capire insieme bisogno, obiettivi e modalità del percorso.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Quanto dura un percorso?
+          <span class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a"><p>Dipende dalla persona e dall'obiettivo. Alcuni percorsi sono più brevi e mirati, altri richiedono più tempo.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Devo avere un problema specifico per contattarti?
+          <span class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a"><p>No, a volte si sente che “qualcosa non va” senza riuscire a dirlo con precisione: questo è già un motivo valido per chiedere aiuto. Possiamo partire proprio da lì, con i tuoi tempi, per comprendere meglio ciò che stai vivendo.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CONTATTI ============================ -->
+<section class="contact" id="contact">
+  <div class="container contact-inner">
+    <div class="contact-text reveal">
+      <span class="eyebrow">Contatti</span>
+      <h2>Contattami per ricevere informazioni o prenotare un colloquio.</h2>
+      <p>Hai dubbi o semplicemente vorresti parlarne? Scegli il canale che preferisci — rispondo personalmente.</p>
+
+      <div class="contact-channels">
+        <a href="https://wa.me/393287360433" target="_blank" rel="noopener" class="channel">
+          <div class="channel-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.15-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.007-.371-.009-.57-.009-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
+          <div class="channel-text"><small>WhatsApp</small>+39 328 7360433</div>
+        </a>
+        <a href="tel:+393287360433" class="channel">
+          <div class="channel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div class="channel-text"><small>Telefono</small>+39 328 7360433</div>
+        </a>
+        <a href="mailto:apusceddu.psi@gmail.com" class="channel">
+          <div class="channel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div class="channel-text"><small>Email</small>apusceddu.psi@gmail.com</div>
+        </a>
+        <div class="channel" style="cursor:default">
+          <div class="channel-icon" style="background:rgba(122,139,111,.3);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="channel-text"><small>Studio</small>Via Roma, 5 - 57126 Livorno</div>
+        </div>
+      </div>
+    </div>
+
+    <form class="form-card reveal" id="leadForm" novalidate>
+      <h3>Richiedi informazioni</h3>
+      <p>Compila il form: ti contatto personalmente, senza impegno.</p>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="name">Nome e cognome *</label>
+          <input id="name" name="name" type="text" required autocomplete="name"/>
+          <div class="err">Inserisci il tuo nome.</div>
+        </div>
+        <div class="field">
+          <label for="phone">Telefono *</label>
+          <input id="phone" name="phone" type="tel" required autocomplete="tel"/>
+          <div class="err">Inserisci un numero valido.</div>
+        </div>
+      </div>
+      <div class="field">
+        <label for="email">Email *</label>
+        <input id="email" name="email" type="email" required autocomplete="email"/>
+        <div class="err">Inserisci un'email valida.</div>
+      </div>
+      <div class="field">
+        <label for="message">Messaggio</label>
+        <textarea id="message" name="message" rows="4" placeholder="Raccontami brevemente cosa stai cercando..."></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary form-submit" id="submitBtn">
+        <span class="submit-label">Invia richiesta</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+      <label class="form-consent">
+        <input type="checkbox" id="consent" required/>
+        <span>Ho letto e accetto la <a href="#" id="openPrivacy">Privacy Policy</a> e acconsento al trattamento dei dati ai sensi del Reg. UE 2016/679 (GDPR).</span>
+      </label>
+      <p class="form-privacy">I dati sono trattati esclusivamente per rispondere alla tua richiesta. Titolare del trattamento: Alice Pusceddu — apusceddu.psi@gmail.com.</p>
+      <div class="form-error" id="formError"></div>
+
+      <div class="form-success" id="formSuccess">
+        <strong>Grazie!</strong>
+        Ho ricevuto il tuo messaggio. Ti ricontatto al più presto, nell'arco della giornata.
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ============================ PRIVACY MODAL ============================ -->
+<div class="modal-backdrop" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
+  <div class="modal-card">
+    <button class="modal-close" id="closePrivacy" aria-label="Chiudi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></button>
+    <span class="eyebrow">Informativa</span>
+    <h3 id="privacyTitle">Privacy Policy</h3>
+    <p>Ai sensi degli artt. 13 e 14 del Regolamento UE 2016/679 (GDPR) e del D.Lgs. 196/2003 e successive modifiche, ti informiamo sul trattamento dei dati personali raccolti tramite il modulo di contatto.</p>
+
+    <h4>1. Titolare del trattamento</h4>
+    <p>Alice Pusceddu — Psicologa, Via Roma 5, 57126 Livorno (LI). Email: apusceddu.psi@gmail.com — P.IVA 02034770491 — Iscr. Albo Ordine Psicologi Toscana n. 10139.</p>
+
+    <h4>2. Dati raccolti</h4>
+    <ul>
+      <li>Nome e cognome</li>
+      <li>Indirizzo email</li>
+      <li>Numero di telefono</li>
+      <li>Contenuto del messaggio</li>
+    </ul>
+
+    <h4>3. Finalità del trattamento</h4>
+    <p>I dati sono trattati esclusivamente per rispondere alla tua richiesta di informazioni e per gestire un eventuale primo contatto conoscitivo. Non sono utilizzati per attività di marketing né ceduti a terzi.</p>
+
+    <h4>4. Base giuridica</h4>
+    <p>Il trattamento si fonda sul tuo consenso espresso (art. 6, comma 1, lett. a GDPR) e sull'esecuzione di misure precontrattuali su tua richiesta (art. 6, comma 1, lett. b).</p>
+
+    <h4>5. Modalità e conservazione</h4>
+    <p>I dati sono conservati su sistemi protetti e per il tempo strettamente necessario a evadere la richiesta. In caso di mancato avvio di un percorso, sono cancellati entro 12 mesi.</p>
+
+    <h4>6. Diritti dell'interessato</h4>
+    <p>Hai diritto di accedere ai tuoi dati, chiederne la rettifica, la cancellazione, la limitazione del trattamento, l'opposizione e la portabilità (artt. 15-22 GDPR), nonché di proporre reclamo al Garante Privacy (www.garanteprivacy.it). Per esercitare i tuoi diritti scrivi a: apusceddu.psi@gmail.com.</p>
+
+    <h4>7. Segreto professionale</h4>
+    <p>In quanto psicologa iscritta all'Albo, il trattamento avviene nel pieno rispetto del Codice Deontologico degli Psicologi Italiani e del segreto professionale (art. 622 c.p.).</p>
+  </div>
+</div>
+
+<!-- ============================ FOOTER ============================ -->
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-meta">
+      © 2026 Alice Pusceddu — Psicologa · P.IVA 02034770491 · Iscr. Albo Ordine Psicologi Toscana n. 10139
+    </div>
+    <div class="footer-meta">
+      <a href="#">Privacy</a> &middot; <a href="#">Cookie</a> &middot; <a href="#">Note legali</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================ WHATSAPP FLOAT ============================ -->
+<a class="wa-float" href="https://wa.me/393287360433?text=Ciao%20Alice%2C%20vorrei%20maggiori%20informazioni." target="_blank" rel="noopener" aria-label="Scrivimi su WhatsApp">
+  <span class="wa-tip">Scrivimi su WhatsApp</span>
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.15-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.007-.371-.009-.57-.009-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- ============================ JS ============================ -->
+<script>
+/* Nav scroll */
+const nav = document.getElementById('nav');
+const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+window.addEventListener('scroll', onScroll, { passive:true });
+onScroll();
+
+/* Mobile nav */
+const burger = document.getElementById('navBurger');
+const navLinks = document.getElementById('navLinks');
+burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+/* Reveal on scroll */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* FAQ accordion */
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const open = item.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+});
+
+/* EmailJS init — replace YOUR_PUBLIC_KEY with your EmailJS public key */
+const EMAILJS_PUBLIC_KEY = '6nAuyxH6a4S9Owc7Z';
+const EMAILJS_SERVICE_ID = 'service_zx0r0g8';
+const EMAILJS_TEMPLATE_ID = 'template_drtvuid';
+if (window.emailjs && EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY'){
+  emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+}
+
+/* Form */
+const form = document.getElementById('leadForm');
+const success = document.getElementById('formSuccess');
+const errBox = document.getElementById('formError');
+const submitBtn = document.getElementById('submitBtn');
+const submitLabel = submitBtn.querySelector('.submit-label');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  errBox.classList.remove('show');
+  let valid = true;
+  const check = (id, fn) => {
+    const f = document.getElementById(id);
+    const field = f.closest('.field');
+    if (!fn(f.value.trim())){ field.classList.add('error'); valid = false; }
+    else field.classList.remove('error');
+  };
+  check('name', v => v.length >= 2);
+  check('email', v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v));
+  check('phone', v => v.replace(/\s/g,'').length >= 7);
+  if (!document.getElementById('consent').checked){
+    errBox.textContent = 'Per procedere devi accettare la Privacy Policy.';
+    errBox.classList.add('show');
+    valid = false;
+  }
+  if (!valid) return;
+
+  submitBtn.disabled = true;
+  submitLabel.textContent = 'Invio in corso…';
+
+  const params = {
+    from_name: document.getElementById('name').value.trim(),
+    from_email: document.getElementById('email').value.trim(),
+    phone: document.getElementById('phone').value.trim(),
+    message: document.getElementById('message').value.trim() || '—',
+  };
+
+  try {
+    if (window.emailjs && EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY'){
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params);
+    } else {
+      // Demo fallback — log + simulate latency
+      console.log('[Demo] EmailJS non configurato. Payload:', params);
+      await new Promise(r => setTimeout(r, 700));
+    }
+    Array.from(form.children).forEach(c => { if (c !== success) c.style.display = 'none'; });
+    success.classList.add('show');
+  } catch (err){
+    console.error(err);
+    errBox.textContent = 'Si è verificato un errore nell\'invio. Riprova o scrivimi su WhatsApp.';
+    errBox.classList.add('show');
+    submitBtn.disabled = false;
+    submitLabel.textContent = 'Invia richiesta';
+  }
+});
+
+/* Privacy modal */
+const privacyModal = document.getElementById('privacyModal');
+document.getElementById('openPrivacy').addEventListener('click', (e) => { e.preventDefault(); privacyModal.classList.add('show'); });
+document.getElementById('closePrivacy').addEventListener('click', () => privacyModal.classList.remove('show'));
+privacyModal.addEventListener('click', (e) => { if (e.target === privacyModal) privacyModal.classList.remove('show'); });
+document.querySelectorAll('.footer-meta a').forEach(a => {
+  if (a.textContent.trim().toLowerCase() === 'privacy'){
+    a.addEventListener('click', (e) => { e.preventDefault(); privacyModal.classList.add('show'); });
+  }
+});
+
+/* Clear error on input */
+document.querySelectorAll('.field input, .field textarea').forEach(i => {
+  i.addEventListener('input', () => i.closest('.field').classList.remove('error'));
+});
+</script>
+
+</body>
+</html>
