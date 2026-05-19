@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <link rel="icon" type="image/png" href="assets/favicon.png">
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <!-- SEO -->
 <title>Psicologa Livorno | Alice Pusceddu — Supporto Psicologico in Studio e Online</title>
-<meta name="description" content="Alice Pusceddu, Psicologa ad orientamento Analisi Transazionale a Livorno. Colloqui in studio e online." />
+<meta name="description" content="Alice Pusceddu, psicologa a Livorno. Percorsi su ansia, autostima, adolescenti, burnout e crescita personale. Colloqui in studio e online. Prima chiamata conoscitiva gratuita." />
 <meta name="keywords" content="psicologa Livorno, psicologo Livorno, psicologa online, psicologa ansia Livorno, psicologa autostima Livorno, supporto psicologico online, psicologa adolescenti Livorno" />
 <meta name="author" content="Alice Pusceddu" />
 <meta name="robots" content="index, follow" />
@@ -207,16 +206,55 @@ section{ padding: clamp(72px, 10vw, 130px) 0; position: relative; }
 
 @media (max-width: 860px){
   .nav-links{
-    position: fixed; top:0; right:-100%; bottom:0; width: 80%; max-width: 340px;
+    position: fixed; top:0; right:0; bottom:0; width: 80%; max-width: 340px;
     background: var(--bg-soft);
     flex-direction: column; justify-content: center; align-items:flex-start;
-    padding: 60px 40px; gap: 24px;
+    padding: 60px 40px;
+    /* iPhone safe-area: notch / status bar / home-indicator */
+    padding-top: max(60px, calc(env(safe-area-inset-top) + 40px));
+    padding-bottom: max(60px, calc(env(safe-area-inset-bottom) + 40px));
+    padding-right: max(40px, env(safe-area-inset-right));
+    gap: 24px;
     box-shadow: -20px 0 40px rgba(0,0,0,.1);
-    transition: right .35s ease;
+    /* GPU-accelerated slide (was animating `right` → causes jank + h-overflow) */
+    transform: translate3d(100%, 0, 0);
+    transition: transform .35s cubic-bezier(.4,0,.2,1), visibility 0s linear .35s;
+    will-change: transform;
+    /* sits above wa-float (z=60) and everything else on mobile */
+    z-index: 110;
+    /* a11y: not focusable/clickable when closed */
+    visibility: hidden;
+    pointer-events: none;
+    /* contain scroll: panel content scrolls, page doesn't bleed through */
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
   }
-  .nav-links.open{ right: 0; }
+  .nav-links.open{
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+    pointer-events: auto;
+    transition: transform .35s cubic-bezier(.4,0,.2,1), visibility 0s linear 0s;
+  }
   .nav-links a{ font-size: 1.1rem; }
-  .nav-burger{ display:flex; }
+  .nav-burger{ display:flex; position: relative; z-index: 112; }
+
+  /* Backdrop — invisibile/discreto, intercetta tap-fuori */
+  .nav-backdrop{
+    position: fixed; inset: 0;
+    background: rgba(30,28,24,.32);
+    z-index: 105;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .35s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .nav-backdrop.show{ opacity: 1; pointer-events: auto; }
+
+  /* Quando il menu è aperto, alza il nav sopra il floating WhatsApp */
+  body.menu-open .nav{ z-index: 108; }
+
+  /* Body scroll-lock — gestito da JS via position:fixed (iOS-safe) */
 }
 
 /* -----------------------------------------------------------
@@ -1769,11 +1807,100 @@ const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
 window.addEventListener('scroll', onScroll, { passive:true });
 onScroll();
 
-/* Mobile nav */
+/* ============================================================
+   Mobile nav — production-grade
+   - GPU-accelerated transform (60fps su iOS/Android)
+   - Backdrop con tap-outside-to-close
+   - Body scroll-lock iOS-safe (position:fixed + restore scrollY)
+   - Esc per chiudere, focus restore sul burger
+   - aria-expanded + aria-label aggiornati
+   - Reset automatico al cambio di breakpoint
+   ============================================================ */
 const burger = document.getElementById('navBurger');
 const navLinks = document.getElementById('navLinks');
-burger.addEventListener('click', () => navLinks.classList.toggle('open'));
-navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+// Backdrop creato dinamicamente per non toccare il markup
+const navBackdrop = document.createElement('div');
+navBackdrop.className = 'nav-backdrop';
+navBackdrop.setAttribute('aria-hidden', 'true');
+document.body.appendChild(navBackdrop);
+
+let _menuOpen = false;
+let _lockedScrollY = 0;
+
+function lockBodyScroll(){
+  _lockedScrollY = window.scrollY || window.pageYOffset || 0;
+  const body = document.body;
+  // Salva eventuali stili inline preesistenti per ripristinarli
+  body.dataset._prevPos   = body.style.position   || '';
+  body.dataset._prevTop   = body.style.top        || '';
+  body.dataset._prevLeft  = body.style.left       || '';
+  body.dataset._prevRight = body.style.right      || '';
+  body.dataset._prevWidth = body.style.width      || '';
+  body.style.position = 'fixed';
+  body.style.top      = `-${_lockedScrollY}px`;
+  body.style.left     = '0';
+  body.style.right    = '0';
+  body.style.width    = '100%';
+  body.classList.add('menu-open');
+}
+function unlockBodyScroll(){
+  const body = document.body;
+  body.style.position = body.dataset._prevPos   || '';
+  body.style.top      = body.dataset._prevTop   || '';
+  body.style.left     = body.dataset._prevLeft  || '';
+  body.style.right    = body.dataset._prevRight || '';
+  body.style.width    = body.dataset._prevWidth || '';
+  delete body.dataset._prevPos;
+  delete body.dataset._prevTop;
+  delete body.dataset._prevLeft;
+  delete body.dataset._prevRight;
+  delete body.dataset._prevWidth;
+  body.classList.remove('menu-open');
+  // Ripristina la posizione di scroll senza animazione (evita layout shift)
+  window.scrollTo(0, _lockedScrollY);
+}
+
+function setMenu(open){
+  if (open === _menuOpen) return;
+  _menuOpen = open;
+  navLinks.classList.toggle('open', open);
+  navBackdrop.classList.toggle('show', open);
+  burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  burger.setAttribute('aria-label', open ? 'Chiudi menu' : 'Apri menu');
+  if (open){
+    lockBodyScroll();
+  } else {
+    unlockBodyScroll();
+    // restituisci il focus al trigger
+    try { burger.focus({ preventScroll: true }); } catch(_) { burger.focus(); }
+  }
+}
+
+// Toggle dal burger
+burger.addEventListener('click', (e) => {
+  e.stopPropagation();
+  setMenu(!_menuOpen);
+});
+
+// Tap sul backdrop chiude
+navBackdrop.addEventListener('click', () => setMenu(false));
+
+// Tap su un link chiude (mantiene il comportamento originale)
+navLinks.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => setMenu(false));
+});
+
+// Escape chiude
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && _menuOpen) setMenu(false);
+});
+
+// Reset automatico se si supera il breakpoint desktop col menu aperto
+const _mqDesktop = window.matchMedia('(min-width: 861px)');
+const _onMq = (ev) => { if (ev.matches && _menuOpen) setMenu(false); };
+if (_mqDesktop.addEventListener) _mqDesktop.addEventListener('change', _onMq);
+else _mqDesktop.addListener(_onMq); // fallback Safari < 14
 
 /* Reveal on scroll */
 const io = new IntersectionObserver((entries) => {
